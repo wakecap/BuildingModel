@@ -1,0 +1,103 @@
+{
+  "points": [
+    {
+      "longitude": -117.33378013520932,
+      "latitude": 33.95723222749059,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "John Doe",
+      "age": 30,
+      "company": "Company A",
+      "jobId": "12345"
+    },
+    {
+      "longitude": -117.3318970628486,
+      "latitude": 33.95643416897167,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "Jane Smith",
+      "age": 28,
+      "company": "Company B",
+      "jobId": "67890"
+    },
+    {
+      "longitude": -117.33492192120501,
+      "latitude": 33.95970269302978,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "Mike Johnson",
+      "age": 35,
+      "company": "Company C",
+      "jobId": "54321"
+    },
+    {
+      "longitude": -117.33451206057174,
+      "latitude": 33.9577574370671,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "Sarah Lee",
+      "age": 32,
+      "company": "Company D",
+      "jobId": "98765"
+    },
+    {
+      "longitude": -117.33097719888478,
+      "latitude": 33.95769290332852,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "Chris Evans",
+      "age": 29,
+      "company": "Company E",
+      "jobId": "11223"
+    },
+    {
+      "longitude": -117.33358627765415,
+      "latitude": 33.958438514707765,
+      "z": 420,
+      "size": 100,
+      "model": "../../public/models/ksb_worker.glb",
+      "name": "Emma Watson",
+      "age": 40,
+      "company": "Company F",
+      "jobId": "44556"
+    },
+    {
+      "longitude": -117.32851431602376,
+      "latitude": 33.95402116096069,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "Robert Brown",
+      "age": 45,
+      "company": "Company G",
+      "jobId": "77889"
+    },
+    {
+      "longitude": -117.3395341971058,
+      "latitude": 33.956127539426916,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/a_chinese_worker.glb",
+      "name": "Lisa White",
+      "age": 27,
+      "company": "Company H",
+      "jobId": "33445"
+    },
+    {
+      "longitude": -117.33843696441456,
+      "latitude": 33.96113573091817,
+      "z": 30,
+      "size": 100,
+      "model": "../../public/models/worker_talk_animation.glb",
+      "name": "Tom Hardy",
+      "age": 38,
+      "company": "Company I",
+      "jobId": "99887"
+    }
+  ]
+}
