@@ -1,0 +1,13 @@
+{
+  // Mainly for static files
+  "liveServer.settings.useWebExt": true,
+
+  // This means that you change your real URL (current PHP url)
+  // to another URL (which Live Sever starts).
+  "liveServer.settings.port": 5502,
+  "liveServer.settings.proxy": {
+    "enable": true, //   i. enabled
+    "baseUri": "/BuildingModel", //  ii. workspace
+    "proxyUri": "http://localhost:5502" // iii. actual address
+  }
+}
