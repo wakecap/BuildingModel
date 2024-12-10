@@ -10,12 +10,15 @@ export const addBuilding = (graphicsLayer: GraphicsLayer): Graphic => {
     z: 10, // Building height
   });
 
+  const isLocal = window.location.hostname === "localhost";
   const buildingSymbol = new PointSymbol3D({
     symbolLayers: [
       {
         type: "object",
         resource: {
-          href: "./models/concept__schoola_4.glb", //GLB
+          href: isLocal
+            ? "./models/concept__schoola_4.glb"
+            : "/BuildingModel/models/concept__schoola_4.glb",
         },
         height: 1000,
       },
