@@ -35,12 +35,12 @@ function App() {
       zoom: 18,
       popupEnabled: false,
       ui: {
-        components: ["zoom"],
+        components: [],
       },
     });
 
     view.ui.remove("attribution");
-    view.ui.move("zoom", "top-right");
+    view.ui.remove("zoom");
 
     const graphicsLayerInstance = new GraphicsLayer();
     webscene.add(graphicsLayerInstance);

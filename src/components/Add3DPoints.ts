@@ -29,9 +29,7 @@ export const add3DPoints = (graphicsLayer: GraphicsLayer): Graphic[] => {
             href: point.model,
           },
           height: point.size,
-          material: {
-            color: "red",
-          },
+          material: {},
         }),
       ],
     });

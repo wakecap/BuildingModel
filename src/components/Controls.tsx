@@ -12,18 +12,26 @@ const Controls: React.FC<ControlsProps> = ({
   hasPoints,
 }) => {
   return (
-    <div className="absolute top-2 left-2 z-[1000] flex flex-col gap-2">
+    <div className="absolute top-4 left-4 z-[1000] flex flex-col gap-4 bg-gray-800 p-4 rounded-lg shadow-lg">
       <button
         onClick={toggleBuilding}
-        className="bg-white border border-black px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
+        className={`px-6 py-3 text-white font-semibold rounded-md ${
+          hasBuilding
+            ? "bg-red-600 hover:bg-red-700"
+            : " bg-gray-700 hover:bg-gray-900"
+        }`}
       >
-        {hasBuilding ? "Delete building" : "Add building"}
+        {hasBuilding ? "Delete Building" : "Add Building"}
       </button>
       <button
         onClick={togglePoints}
-        className="bg-white border border-black px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
+        className={`px-6 py-3 text-white font-semibold rounded-md ${
+          hasPoints
+            ? "bg-red-600 hover:bg-red-700"
+            : "bg-gray-700 hover:bg-gray-900"
+        }`}
       >
-        {hasPoints ? "Delete points" : "Add points"}
+        {hasPoints ? "Delete Points" : "Add Points"}
       </button>
     </div>
   );

@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import helmet from "../assets/hard-hat.png";
+
 interface PointDetailsWidgetProps {
   selectedPoint: any;
 }
@@ -6,29 +8,35 @@ interface PointDetailsWidgetProps {
 const PointDetailsWidget: React.FC<PointDetailsWidgetProps> = ({
   selectedPoint,
 }) => {
-  return (
-    <div className="absolute top-2 right-2 z-[1000] bg-white p-4 border border-black rounded-md min-w-[200px]">
-      {selectedPoint ? (
-        <div>
-          <h3 className="font-bold text-lg mb-2">Point Details</h3>
-          <ul className="space-y-1">
-            <li>
-              <b>Name:</b> {selectedPoint.name}
-            </li>
-            <li>
-              <b>Age:</b> {selectedPoint.age}
-            </li>
-            <li>
-              <b>Company:</b> {selectedPoint.company}
-            </li>
-            <li>
-              <b>Job ID:</b> {selectedPoint.jobId}
-            </li>
-          </ul>
-        </div>
-      ) : (
-        <p className="text-gray-600">Click on a point to see details</p>
-      )}
+  return selectedPoint ? (
+    <div className="bg-gray-800 absolute top-4 right-4 p-6 border border-blue-400 rounded-xl shadow-xl w-[280px]">
+      <div>
+        <h3 className="font-semibold text-lg text-gray-950 mb-4">
+          Point Details
+        </h3>
+        <ul className="space-y-2">
+          <li>
+            <span className="font-medium text-gray-500">Name:</span>{" "}
+            <span className="text-red-300">{selectedPoint.name}</span>
+          </li>
+          <li>
+            <span className="font-medium text-gray-500">Age:</span>{" "}
+            <span className="text-red-300">{selectedPoint.age}</span>
+          </li>
+          <li>
+            <span className="font-medium text-gray-500">Company:</span>{" "}
+            <span className="text-red-300">{selectedPoint.company}</span>
+          </li>
+          <li>
+            <span className="font-medium text-gray-500">Job ID:</span>{" "}
+            <span className="text-red-300">{selectedPoint.jobId}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  ) : (
+    <div className="absolute top-4 right-4 flex items-center justify-center">
+      <img src={helmet} alt="Hard Hat" className="h-24 w-24" />
     </div>
   );
 };
