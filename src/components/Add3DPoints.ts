@@ -17,7 +17,7 @@ export const add3DPoints = (graphicsLayer: GraphicsLayer): Graphic[] => {
         <ul>
           <li><b>Age:</b> ${point.age}</li>
           <li><b>Company:</b> ${point.company}</li>
-          <li><b>Job ID:</b> ${point.jobId}</li>
+          <li><b>Job ID:</b> ${point.jobId}</li> 
         </ul>
       `,
     });
