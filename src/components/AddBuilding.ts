@@ -18,7 +18,7 @@ export const addBuilding = (graphicsLayer: GraphicsLayer): Graphic => {
         resource: {
           href: isLocal
             ? "./models/concept__schoola_4.glb"
-            : "/BuildingModel/models/concept__schoola_4.glb",
+            : "https://filebin.net/4nmyycy7kjrsuf28/a_chinese_worker.glb",
         },
         height: 1000,
       },
