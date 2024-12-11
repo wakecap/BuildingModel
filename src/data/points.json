@@ -16,7 +16,7 @@
       "latitude": 33.95643416897167,
       "z": 30,
       "size": 100,
-      "model": "/BuildingModel/modelsa_chinese_worker.glb",
+      "model": "/BuildingModel/models/a_chinese_worker.glb",
       "name": "Jane Smith",
       "age": 28,
       "company": "Company B",
