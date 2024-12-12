@@ -3,11 +3,21 @@ import Graphic from "@arcgis/core/Graphic";
 import Point from "@arcgis/core/geometry/Point";
 import PointSymbol3D from "@arcgis/core/symbols/PointSymbol3D";
 
-export const addBuilding = (graphicsLayer: GraphicsLayer): Graphic => {
+interface BuildingOptions {
+  longitude: number;
+  latitude: number;
+  model: string;
+  height: number;
+}
+
+export const addBuilding = (
+  graphicsLayer: GraphicsLayer,
+  options: BuildingOptions
+): Graphic => {
   const pointGeometry = new Point({
-    longitude: -117.1956,
-    latitude: 34.0561,
-    z: 10, // Building height
+    longitude: options.longitude,
+    latitude: options.latitude,
+    z: -5, // Building height
   });
 
   const buildingSymbol = new PointSymbol3D({
@@ -15,9 +25,9 @@ export const addBuilding = (graphicsLayer: GraphicsLayer): Graphic => {
       {
         type: "object",
         resource: {
-          href: "./models/concept__schoola_4.glb",
+          href: options.model,
         },
-        height: 1000,
+        height: options.height,
       },
     ],
   });
@@ -25,11 +35,8 @@ export const addBuilding = (graphicsLayer: GraphicsLayer): Graphic => {
   const buildingGraphic = new Graphic({
     geometry: pointGeometry,
     symbol: buildingSymbol,
-    elevationInfo: {
-      mode: "relative-to-ground",
-    },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } as any);
+  });
+
   graphicsLayer.add(buildingGraphic);
   return buildingGraphic;
 };

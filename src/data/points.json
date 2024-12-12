@@ -98,6 +98,40 @@
       "age": 38,
       "company": "Company I",
       "jobId": "99887"
+    },
+
+    {
+      "longitude": -117.30161268261674,
+      "latitude": 33.95389713044298,
+      "z": 70,
+      "size": 100,
+      "model": "/BuildingModel/models/a_chinese_worker.glb",
+      "name": "Lisa White",
+      "age": 27,
+      "company": "Company H",
+      "jobId": "33445"
+    },
+    {
+      "longitude": -117.30475361835556,
+      "latitude": 33.95302057691177,
+      "z": 380,
+      "size": 100,
+      "model": "/BuildingModel/models/a_chinese_worker.glb",
+      "name": "Lisa White",
+      "age": 25,
+      "company": "Company H",
+      "jobId": "11193"
+    },
+    {
+      "longitude": -117.3060974570003,
+      "latitude": 33.954955538274997,
+      "z": 380,
+      "size": 100,
+      "model": "/BuildingModel/models/a_chinese_worker.glb",
+      "name": "Meshari AL_Ghabban",
+      "age": 20,
+      "company": "WakeCap",
+      "jobId": "F-15"
     }
   ]
 }

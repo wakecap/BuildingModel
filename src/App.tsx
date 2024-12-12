@@ -14,7 +14,7 @@ function App() {
   const [graphicsLayer, setGraphicsLayer] = useState<GraphicsLayer | null>(
     null
   );
-  const [buildingGraphic, setBuildingGraphic] = useState<any>(null);
+  const [buildingGraphics, setBuildingGraphics] = useState<any[]>([]); // List of buildings
   const [pointsGraphics, setPointsGraphics] = useState<any[]>([]);
   const [selectedPoint, setSelectedPoint] = useState<any>(null);
   const [totalWorkers, setTotalWorkers] = useState(0);
@@ -75,18 +75,55 @@ function App() {
     };
   }, []);
 
-  const toggleBuilding = () => {
+  const addSpecificBuilding = (option: string) => {
     if (!graphicsLayer) return;
 
-    if (buildingGraphic) {
-      graphicsLayer.remove(buildingGraphic);
-      setBuildingGraphic(null);
-      setTotalBuildings((prev) => prev - 1);
-    } else {
-      const building = addBuilding(graphicsLayer);
-      setBuildingGraphic(building);
-      setTotalBuildings((prev) => prev + 1);
+    let newBuildings: string | any[] = [];
+    if (option === "first") {
+      newBuildings = [
+        addBuilding(graphicsLayer, {
+          longitude: -117.1956,
+          latitude: 34.0561,
+          model: "./models/concept__schoola_4.glb",
+          height: 1000,
+        }),
+      ];
+    } else if (option === "second") {
+      newBuildings = [
+        addBuilding(graphicsLayer, {
+          longitude: -117.31986697325468,
+          latitude: 33.94499309859469,
+          model: "./models/cassa_pizza.glb",
+          height: 800,
+        }),
+      ];
+    } else if (option === "both") {
+      newBuildings = [
+        addBuilding(graphicsLayer, {
+          longitude: -117.1956,
+          latitude: 34.0561,
+          model: "./models/concept__schoola_4.glb",
+          height: 1000,
+        }),
+        addBuilding(graphicsLayer, {
+          longitude: -117.31986697325468,
+          latitude: 33.94499309859469,
+          model: "./models/cassa_pizza.glb",
+          height: 800,
+        }),
+      ];
     }
+
+    setBuildingGraphics((prev) => [...prev, ...newBuildings]);
+    setTotalBuildings((prev) => prev + newBuildings.length);
+  };
+
+  const removeBuildings = () => {
+    if (!graphicsLayer) return;
+
+    buildingGraphics.forEach((graphic) => graphicsLayer.remove(graphic));
+    setBuildingGraphics([]);
+    setTotalBuildings(0);
   };
 
   const togglePoints = () => {
@@ -112,10 +149,11 @@ function App() {
         totalBuildings={totalBuildings}
       />
       <Controls
-        toggleBuilding={toggleBuilding}
+        toggleBuilding={addSpecificBuilding}
         togglePoints={togglePoints}
-        hasBuilding={!!buildingGraphic}
+        hasBuilding={buildingGraphics.length > 0}
         hasPoints={pointsGraphics.length > 0}
+        removeBuildings={removeBuildings}
       />
     </>
   );
