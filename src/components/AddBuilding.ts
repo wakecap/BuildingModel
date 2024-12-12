@@ -8,6 +8,7 @@ interface BuildingOptions {
   latitude: number;
   model: string;
   height: number;
+  attributes?: { [key: string]: unknown };
 }
 
 export const addBuilding = (
@@ -35,6 +36,7 @@ export const addBuilding = (
   const buildingGraphic = new Graphic({
     geometry: pointGeometry,
     symbol: buildingSymbol,
+    attributes: options.attributes || {},
   });
 
   graphicsLayer.add(buildingGraphic);

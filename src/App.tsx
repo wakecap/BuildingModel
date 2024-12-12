@@ -78,40 +78,63 @@ function App() {
   const addSpecificBuilding = (option: string) => {
     if (!graphicsLayer) return;
 
-    let newBuildings: string | any[] = [];
-    if (option === "first") {
-      newBuildings = [
+    // eslint-disable-next-line prefer-const
+    let newBuildings = [];
+    const existingGraphics = [...buildingGraphics];
+
+    if (
+      option === "first" &&
+      !existingGraphics.find((g) => g.attributes?.type === "school")
+    ) {
+      newBuildings.push(
         addBuilding(graphicsLayer, {
           longitude: -117.1956,
           latitude: 34.0561,
           model: "./models/concept__schoola_4.glb",
           height: 1000,
-        }),
-      ];
-    } else if (option === "second") {
-      newBuildings = [
+          attributes: { type: "school" },
+        })
+      );
+    }
+
+    if (
+      option === "second" &&
+      !existingGraphics.find((g) => g.attributes?.type === "home")
+    ) {
+      newBuildings.push(
         addBuilding(graphicsLayer, {
           longitude: -117.31986697325468,
           latitude: 33.94499309859469,
           model: "./models/cassa_pizza.glb",
           height: 800,
-        }),
-      ];
-    } else if (option === "both") {
-      newBuildings = [
-        addBuilding(graphicsLayer, {
-          longitude: -117.1956,
-          latitude: 34.0561,
-          model: "./models/concept__schoola_4.glb",
-          height: 1000,
-        }),
-        addBuilding(graphicsLayer, {
-          longitude: -117.31986697325468,
-          latitude: 33.94499309859469,
-          model: "./models/cassa_pizza.glb",
-          height: 800,
-        }),
-      ];
+          attributes: { type: "home" },
+        })
+      );
+    }
+
+    if (option === "both") {
+      if (!existingGraphics.find((g) => g.attributes?.type === "school")) {
+        newBuildings.push(
+          addBuilding(graphicsLayer, {
+            longitude: -117.1956,
+            latitude: 34.0561,
+            model: "./models/concept__schoola_4.glb",
+            height: 1000,
+            attributes: { type: "school" },
+          })
+        );
+      }
+      if (!existingGraphics.find((g) => g.attributes?.type === "home")) {
+        newBuildings.push(
+          addBuilding(graphicsLayer, {
+            longitude: -117.31986697325468,
+            latitude: 33.94499309859469,
+            model: "./models/cassa_pizza.glb",
+            height: 800,
+            attributes: { type: "home" },
+          })
+        );
+      }
     }
 
     setBuildingGraphics((prev) => [...prev, ...newBuildings]);
