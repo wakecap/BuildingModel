@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import WebScene from "@arcgis/core/WebScene";
@@ -5,7 +6,7 @@ import SceneView from "@arcgis/core/views/SceneView";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import PointDetailsWidget from "./components/PointDetailsWidget";
 import StatisticsWidget from "./components/StatisticsWidget";
-import Controls from "./components/Controls";
+import Sidebar from "./components/Sidebar";
 import { addBuilding } from "./components/AddBuilding";
 import { add3DPoints } from "./components/Add3DPoints";
 import { addHeatmapLayer } from "./components/AddHeatmap";
@@ -19,6 +20,7 @@ function App() {
   const [selectedPoint, setSelectedPoint] = useState<any>(null);
   const [totalWorkers, setTotalWorkers] = useState(0);
   const [totalBuildings, setTotalBuildings] = useState(0);
+  const [view, setView] = useState<__esri.SceneView | null>(null);
 
   useEffect(() => {
     const viewDiv = document.getElementById("viewDiv") as HTMLDivElement;
@@ -28,7 +30,7 @@ function App() {
       ground: { surfaceColor: "white" },
     });
 
-    const view = new SceneView({
+    const sceneView = new SceneView({
       container: viewDiv,
       map: webscene,
       center: [-117.33378013520932, 33.95723222749059],
@@ -39,17 +41,18 @@ function App() {
       },
     });
 
-    view.ui.remove("attribution");
-    view.ui.remove("zoom");
+    sceneView.ui.remove("attribution");
+    sceneView.ui.remove("zoom");
 
     const graphicsLayerInstance = new GraphicsLayer();
     webscene.add(graphicsLayerInstance);
     setGraphicsLayer(graphicsLayerInstance);
+    setView(sceneView);
 
     addHeatmapLayer(webscene);
 
-    view.on("click", (event) => {
-      view.hitTest(event).then((response) => {
+    sceneView.on("click", (event) => {
+      sceneView.hitTest(event).then((response) => {
         const results = response.results.filter(
           (result) => "graphic" in result
         ) as __esri.GraphicHit[];
@@ -71,14 +74,30 @@ function App() {
     });
 
     return () => {
-      view.destroy();
+      sceneView.destroy();
     };
   }, []);
+
+  const searchPoint = (query: string) => {
+    if (!view || pointsGraphics.length === 0) return;
+
+    const foundPoint = pointsGraphics.find(
+      (graphic) =>
+        graphic.attributes?.name?.toLowerCase() === query.toLowerCase() ||
+        graphic.attributes?.jobId?.toString() === query
+    );
+
+    if (foundPoint) {
+      view.goTo({ target: foundPoint.geometry, zoom: 20 });
+      setSelectedPoint(foundPoint.attributes);
+    } else {
+      alert("Point not found!");
+    }
+  };
 
   const addSpecificBuilding = (option: string) => {
     if (!graphicsLayer) return;
 
-    // eslint-disable-next-line prefer-const
     let newBuildings = [];
     const existingGraphics = [...buildingGraphics];
 
@@ -171,12 +190,12 @@ function App() {
         totalWorkers={totalWorkers}
         totalBuildings={totalBuildings}
       />
-      <Controls
+      <Sidebar
         toggleBuilding={addSpecificBuilding}
         togglePoints={togglePoints}
-        hasBuilding={buildingGraphics.length > 0}
-        hasPoints={pointsGraphics.length > 0}
         removeBuildings={removeBuildings}
+        searchPoint={searchPoint} // Search
+        hasPoints={pointsGraphics.length > 0}
       />
     </>
   );

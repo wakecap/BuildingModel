@@ -9,7 +9,7 @@ const PointDetailsWidget: React.FC<PointDetailsWidgetProps> = ({
   selectedPoint,
 }) => {
   return selectedPoint ? (
-    <div className="bg-gray-800 absolute top-4 right-4 p-6 border border-blue-400 rounded-xl shadow-xl w-[280px]">
+    <div className="bg-gray-800 absolute top-4 right-4 p-6 border border-blue-400 rounded-xl shadow-xl w-[230px]">
       <div>
         <h3 className="font-semibold text-lg text-gray-950 mb-4">
           Point Details
