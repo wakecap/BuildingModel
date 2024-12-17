@@ -6,10 +6,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "John Doe",
+      "name": "Abdulrahman Mohammed",
       "age": 30,
-      "company": "Company A",
-      "jobId": "12345"
+      "company": "Petromin",
+      "jobId": "wa25001001"
     },
     {
       "longitude": -117.3318970628486,
@@ -17,10 +17,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Jane Smith",
+      "name": "Ali Hassan",
       "age": 28,
-      "company": "Company B",
-      "jobId": "67890"
+      "company": "Modon",
+      "jobId": "wa25001002"
     },
     {
       "longitude": -117.33492192120501,
@@ -28,10 +28,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Mike Johnson",
+      "name": "Ahmad Khalid",
       "age": 35,
-      "company": "Company C",
-      "jobId": "54321"
+      "company": "Petro Rabigh",
+      "jobId": "wa25001003"
     },
     {
       "longitude": -117.33451206057174,
@@ -39,10 +39,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Sarah Lee",
+      "name": "Yasin Mustafa",
       "age": 32,
-      "company": "Company D",
-      "jobId": "98765"
+      "company": "Ma'aden",
+      "jobId": "wa25001004"
     },
     {
       "longitude": -117.33097719888478,
@@ -50,10 +50,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Chris Evans",
+      "name": "Rami Ibrahim",
       "age": 29,
-      "company": "Company E",
-      "jobId": "11223"
+      "company": "SEC-Saudi Electricity",
+      "jobId": "wa25001005"
     },
     {
       "longitude": -117.33358627765415,
@@ -61,10 +61,10 @@
       "z": 420,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Emma Watson",
+      "name": "Saleem Yousef",
       "age": 40,
-      "company": "Company F",
-      "jobId": "44556"
+      "company": "Bahri",
+      "jobId": "wa25001006"
     },
     {
       "longitude": -117.32851431602376,
@@ -72,10 +72,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Robert Brown",
+      "name": "Abdulrahim Issa",
       "age": 45,
-      "company": "Company G",
-      "jobId": "77889"
+      "company": "WakeCap",
+      "jobId": "wa25001007"
     },
     {
       "longitude": -117.3395341971058,
@@ -83,10 +83,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Lisa White",
+      "name": "Mohammed Abdulaziz",
       "age": 27,
-      "company": "Company H",
-      "jobId": "33445"
+      "company": "GASCO",
+      "jobId": "wa25001008"
     },
     {
       "longitude": -117.33843696441456,
@@ -94,10 +94,10 @@
       "z": 30,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Tom Hardy",
+      "name": "Abdulmalek Khalid",
       "age": 38,
-      "company": "Company I",
-      "jobId": "99887"
+      "company": "ADNOC",
+      "jobId": "wa25001009"
     },
 
     {
@@ -106,10 +106,10 @@
       "z": 70,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Lisa White",
+      "name": "Hassan Ahmad",
       "age": 27,
-      "company": "Company H",
-      "jobId": "33445"
+      "company": "SABIC",
+      "jobId": "wa25001010"
     },
     {
       "longitude": -117.30475361835556,
@@ -117,10 +117,10 @@
       "z": 380,
       "size": 100,
       "model": "/BuildingModel/models/a_chinese_worker.glb",
-      "name": "Lisa White",
+      "name": "Issa Rami",
       "age": 25,
-      "company": "Company H",
-      "jobId": "11193"
+      "company": "GASCO",
+      "jobId": "wa25001011"
     },
     {
       "longitude": -117.3060974570003,
@@ -132,6 +132,17 @@
       "age": 20,
       "company": "WakeCap",
       "jobId": "F-15"
+    },
+    {
+      "longitude": -117.30526278024459,
+      "latitude": 33.95816835433608,
+      "z": 100,
+      "size": 100,
+      "model": "/BuildingModel/models/a_chinese_worker.glb",
+      "name": "Khalid Rashed",
+      "age": 20,
+      "company": "Marafiq",
+      "jobId": "wa25001012"
     }
   ]
 }

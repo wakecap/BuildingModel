@@ -4,13 +4,11 @@ import remove from "../assets/trash.png";
 import removepoint from "../assets/delete.png";
 import build from "../assets/old-building.png";
 import buint from "../assets/track.png";
-import searchIcon from "../assets/search-interface-symbol.png";
 
 interface SidebarProps {
   toggleBuilding: (option: string) => void;
   togglePoints: () => void;
   removeBuildings: () => void;
-  searchPoint: (query: string) => void;
   hasPoints: boolean;
 }
 
@@ -18,21 +16,10 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleBuilding,
   togglePoints,
   removeBuildings,
-  searchPoint,
   hasPoints,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showBuildingOptions, setShowBuildingOptions] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = () => {
-    if (searchQuery.trim() === "") {
-      alert("Please enter a valid search query.");
-      return;
-    }
-    searchPoint(searchQuery);
-    setSearchQuery("");
-  };
 
   return (
     <div className="absolute top-0 left-0 h-full bg-gray-800 text-white flex flex-col items-center shadow-lg">
@@ -97,21 +84,6 @@ const Sidebar: React.FC<SidebarProps> = ({
               <img src={buint} alt="Add Points" className="h-8 w-8" />
             )}
           </button>
-
-          <div className="mt-4 ml-5">
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                placeholder="Search by Name/ID"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-[120px] px-2 py-1 text-gray-800 rounded focus:outline-none"
-              />
-              <button onClick={handleSearch} className="p-2 ">
-                <img src={searchIcon} alt="Search" className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
         </div>
       )}
     </div>

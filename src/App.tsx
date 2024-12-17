@@ -10,6 +10,7 @@ import Sidebar from "./components/Sidebar";
 import { addBuilding } from "./components/AddBuilding";
 import { add3DPoints } from "./components/Add3DPoints";
 import { addHeatmapLayer } from "./components/AddHeatmap";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [graphicsLayer, setGraphicsLayer] = useState<GraphicsLayer | null>(
@@ -194,9 +195,9 @@ function App() {
         toggleBuilding={addSpecificBuilding}
         togglePoints={togglePoints}
         removeBuildings={removeBuildings}
-        searchPoint={searchPoint} // Search
         hasPoints={pointsGraphics.length > 0}
       />
+      <SearchBar searchPoint={searchPoint} />
     </>
   );
 }
