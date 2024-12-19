@@ -7,16 +7,17 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import PointDetailsWidget from "./components/PointDetailsWidget";
 import StatisticsWidget from "./components/StatisticsWidget";
 import Sidebar from "./components/Sidebar";
+import SearchBar from "./components/SearchBar";
 import { addBuilding } from "./components/AddBuilding";
 import { add3DPoints } from "./components/Add3DPoints";
 import { addHeatmapLayer } from "./components/AddHeatmap";
-import SearchBar from "./components/SearchBar";
+import workersData from "./data/points.json";
 
 function App() {
   const [graphicsLayer, setGraphicsLayer] = useState<GraphicsLayer | null>(
     null
   );
-  const [buildingGraphics, setBuildingGraphics] = useState<any[]>([]); // List of buildings
+  const [buildingGraphics, setBuildingGraphics] = useState<any[]>([]);
   const [pointsGraphics, setPointsGraphics] = useState<any[]>([]);
   const [selectedPoint, setSelectedPoint] = useState<any>(null);
   const [totalWorkers, setTotalWorkers] = useState(0);
@@ -92,7 +93,7 @@ function App() {
       view.goTo({ target: foundPoint.geometry, zoom: 20 });
       setSelectedPoint(foundPoint.attributes);
     } else {
-      alert("Point not found!");
+      console.log("Point not found");
     }
   };
 
@@ -197,7 +198,13 @@ function App() {
         removeBuildings={removeBuildings}
         hasPoints={pointsGraphics.length > 0}
       />
-      <SearchBar searchPoint={searchPoint} />
+      <SearchBar
+        searchPoint={searchPoint}
+        workers={workersData.points.map((point) => ({
+          name: point.name,
+          jobId: point.jobId,
+        }))}
+      />
     </>
   );
 }
